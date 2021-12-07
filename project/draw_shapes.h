@@ -7,6 +7,8 @@
 #include "switches.h"
 
 extern short redrawScreen;
+extern short drawPosP[2];
+extern short drawPosC[2];
 
 /* draws an hourglass shape */
 void update_shape(void);

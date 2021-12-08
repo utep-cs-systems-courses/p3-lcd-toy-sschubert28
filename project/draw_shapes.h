@@ -9,8 +9,9 @@
 extern short redrawScreen;
 extern short drawPosP[2];
 extern short drawPosC[2];
+extern char playerScore;
+extern char computerScore;
 
-/* draws an hourglass shape */
 void update_shape(void);
 
 #endif // _DRAW_SHAPES_H_

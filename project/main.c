@@ -4,7 +4,23 @@
 #include "lcddraw.h"
 #include "draw_shapes.h"
 
-// WARNING: LCD DISPLAY USES P1.0.  Do not touch!!! 
+// WARNING: LCD DISPLAY USES P1.0.  Do not touch!!!
+
+short drawPosF[3] = {screenWidth-5, screenHeight-13, (screenHeight-15)/2};
+
+void gameSetup()
+{
+  clearScreen(COLOR_BLACK);     // Draw black background
+  drawString5x7(3, 152, "Player1:", COLOR_WHITE, COLOR_BLACK);  // Draw player 1 score board
+  drawChar5x7(50, 152, playerScore, COLOR_WHITE, COLOR_BLACK);  // Draw player 2 score
+  drawString5x7(65, 152, "Computer:", COLOR_WHITE, COLOR_BLACK);  // Draw Computer score board
+  drawChar5x7(118, 152, computerScore, COLOR_WHITE, COLOR_BLACK);  // Draw Computer score
+  drawRectOutline(2, 2, drawPosF[0], drawPosF[1], COLOR_WHITE);   // Draw field outline
+  drawRectOutline(2, drawPosF[2], drawPosF[0], .5, COLOR_WHITE);  // Draw half line
+  fillRectangle(drawPosC[0], drawPosC[1], 30, 3, COLOR_WHITE);   // Draw top paddle
+  fillRectangle(drawPosP[0], drawPosP[1], 30, 3, COLOR_WHITE);   // Draw bottom paddle
+  drawDiamond((screenWidth/2)-6, drawPosF[2]-5, 5, COLOR_WHITE);   // Draw ball/diamond
+}
 
 void main()
 {
@@ -19,14 +35,7 @@ void main()
   or_sr(0x8);                 /**< GIE (enable interrupts) */
 
   /* Setting up playing field and score board */
-  clearScreen(COLOR_BLACK);     // Draw black background
-  drawString5x7(3, 152, "Player1:", COLOR_WHITE, COLOR_BLACK);  // Draw player 1 score board
-  drawString5x7(72, 152, "Player2:", COLOR_WHITE, COLOR_BLACK);  // Draw player 2 score board
-  drawRectOutline(2, 2, screenWidth-5, screenHeight-13, COLOR_WHITE);   // Draw field outline
-  drawRectOutline(2, (screenHeight-15)/2, screenWidth-5, .5, COLOR_WHITE);  // Draw half line
-  fillRectangle((screenWidth / 2)-15, 5, 30, 3, COLOR_WHITE);   // Draw top paddle
-  fillRectangle(drawPosP[0], drawPosP[1], 30, 3, COLOR_WHITE);   // Draw bottom paddle
-  
+  gameSetup();
   
   while (1) {			// forever
     if (redrawScreen) {

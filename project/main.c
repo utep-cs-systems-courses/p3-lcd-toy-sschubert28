@@ -44,9 +44,9 @@ void main()
   switch_init();
   
   enableWDTInterrupts();      /**< enable periodic interrupt */
-  or_sr(0X8);                 /**< GIE (enable interrupt) */
+  or_sr(0x8);                 /**< GIE (enable interrupts) */
 
-  /* Setting up player field and score board */
+  /* Setting up playing field and score board */
   gameSetup();
   
   while (loop) {  // Until somebody wins 

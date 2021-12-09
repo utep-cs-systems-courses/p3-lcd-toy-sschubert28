@@ -7,7 +7,6 @@
 
 // WARNING: LCD DISPLAY USES P1.0.  Do not touch!!!
 
-short drawPosF[3] = {screenWidth-5, screenHeight-13, (screenHeight-15)/2};  // Coordanites for the field
 int loop = 1;
 
 void gameSetup()
@@ -21,8 +20,7 @@ void gameSetup()
   drawRectOutline(2, drawPosF[2], drawPosF[0], .5, COLOR_WHITE);  // Draw half line
   fillRectangle(drawPosC[0], drawPosC[1], 30, 3, COLOR_WHITE);   // Draw top paddle
   fillRectangle(drawPosP[0], drawPosP[1], 30, 3, COLOR_WHITE);   // Draw bottom paddle
-  drawDiamond((screenWidth/2)-6, drawPosF[2]-5, 5, COLOR_WHITE);   // Draw ball/diamond
-  
+  drawDiamond(drawPosB[0], drawPosB[1], 5, COLOR_WHITE);   // Draw ball/diamond
 }
 
 void endGameMessage()

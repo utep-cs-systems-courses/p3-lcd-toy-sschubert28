@@ -9,8 +9,10 @@
 extern short redrawScreen;
 extern short drawPosP[2];
 extern short drawPosC[2];
-extern char playerScore;
-extern char computerScore;
+extern int playerScore;
+extern int computerScore;
+extern char playerScoreP;
+extern char computerScoreP;
 
 void update_shape(void);
 
